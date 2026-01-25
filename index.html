@@ -1,1 +1,171 @@
-alias
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alias - Seus Atalhos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-950 text-slate-100 font-mono">
+    <!-- HEADER -->
+    <header class="bg-slate-900 border-b border-slate-700 py-6">
+        <div class="max-w-5xl mx-auto px-4">
+            <h1 class="text-3xl font-bold text-slate-300"># Alias</h1>
+            <p class="text-slate-500 text-sm mt-1">Seus atalhos mágicos no terminal</p>
+        </div>
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="max-w-5xl mx-auto px-4 py-8">
+        <!-- SEARCH -->
+        <div class="mb-8">
+            <input type="text" id="searchInput" placeholder="🔍 Procure por alias, comando ou categoria..."
+                class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded text-slate-100 placeholder-slate-500 focus:outline-none focus:border-slate-600 text-sm">
+        </div>
+
+        <!-- ALIASES -->
+        <div id="aliasGrid" class="space-y-2 mb-12"></div>
+
+        <div id="noResults" class="hidden text-slate-500 text-center py-8">
+            Nenhum alias encontrado
+        </div>
+
+        <!-- INSTRUÇÕES -->
+        <div class="bg-slate-900 border border-slate-700 rounded p-6 mb-8">
+            <h2 class="text-xl font-bold text-slate-300 mb-6"># Como Instalar</h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-slate-400 font-bold mb-3">## Primeira vez no Linux</h3>
+                    <div class="bg-slate-950 border border-slate-700 rounded p-3 space-y-1 text-sm">
+                        <div class="text-slate-500"># Abra o arquivo de configuração:</div>
+                        <div class="text-slate-300">nano ~/.bashrc</div>
+                        <div class="text-slate-500 mt-3"># Vá ao final do arquivo e cole seus alias</div>
+                        <div class="text-slate-500"># Pressione CTRL+O para salvar, ENTER e CTRL+X para sair</div>
+                        <div class="text-slate-500 mt-3"># Recarregue o arquivo:</div>
+                        <div class="text-slate-300">source ~/.bashrc</div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-slate-400 font-bold mb-3">## Alterar alias já instalados</h3>
+                    <div class="bg-slate-950 border border-slate-700 rounded p-3 space-y-1 text-sm">
+                        <div class="text-slate-300">subl ~/.bashrc</div>
+                        <div class="text-slate-500 mt-3"># Faça suas alterações e salve novamente</div>
+                        <div class="text-slate-300 mt-3">source ~/.bashrc</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 border-t border-slate-700 py-4">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h3 class="text-slate-400 text-sm">Desenvolvido por <a href="https://meuweb.site" target="_blank"
+                    class="text-slate-300 hover:text-slate-100">meuWeb.site</a></h3>
+        </div>
+    </footer>
+
+    <script>
+        const aliasData = [
+            // --- Categoria: Harry Potter ---
+            { categoria: 'Harry Potter', alias: 'lumos', comando: 'ls -h' },
+            { categoria: 'Harry Potter', alias: 'revelio', comando: 'ls -l -h' },
+            { categoria: 'Harry Potter', alias: 'reveliomaxima', comando: 'ls -h -l -a' },
+            { categoria: 'Harry Potter', alias: 'revelio_maxima', comando: 'ls -h -l -a' },
+            { categoria: 'Harry Potter', alias: 'alohomora', comando: 'nautilus .' },
+            { categoria: 'Harry Potter', alias: 'avadakedavra', comando: 'sudo shutdown -h now' },
+            { categoria: 'Harry Potter', alias: 'bombarda', comando: 'shutdown' },
+            { categoria: 'Harry Potter', alias: 'protego', comando: 'echo "~~* Protego! (Trancando a tela...) *~~"; loginctl lock-session' },
+
+            // --- Categoria: Português / Úteis ---
+            { categoria: 'Português', alias: 'ir', comando: 'cd' },
+            { categoria: 'Português', alias: 'lista', comando: 'ls -h' },
+            { categoria: 'Português', alias: 'listar', comando: 'ls -h' },
+            { categoria: 'Português', alias: 'raiz', comando: 'cd /' },
+            { categoria: 'Português', alias: 'voltar', comando: 'cd ..' },
+            { categoria: 'Português', alias: 'file', comando: 'nautilus .' },
+            { categoria: 'Português', alias: 'files', comando: 'nautilus .' },
+            { categoria: 'Português', alias: 'explorar', comando: 'nautilus .' },
+            { categoria: 'Português', alias: 'subl', comando: 'flatpak run com.sublimetext.three' },
+            { categoria: 'Português', alias: 'alteraralias', comando: 'subl ~/.bashrc' },
+            { categoria: 'Português', alias: 'salvaralias', comando: 'source ~/.bashrc' },
+
+            // --- Categoria: Sistema de Repositories ---
+            { categoria: 'Projetos', alias: 'mennuv', comando: 'cd ~/Repositories/mennuv-pasta && ls' },
+            { categoria: 'Projetos', alias: 'meuweb', comando: 'cd ~/Repositories/meuwebsite-pasta && ls' },
+            { categoria: 'Projetos', alias: 'meuwebsite', comando: 'cd ~/Repositories/meuwebsite-pasta && ls' },
+            { categoria: 'Projetos', alias: 'outros', comando: 'cd ~/Repositories/outros-pasta && ls' },
+            { categoria: 'Projetos', alias: 'outrosprojetos', comando: 'cd ~/Repositories/outros-pasta && ls' },
+
+            // --- Categoria: Git & GitHub ---
+            {
+                categoria: 'Git',
+                alias: 'gitaccio',
+                comando: 'echo "~~*~~"; echo "~~* Git Pull *~~"; git pull; echo "===> *Atenção* Digite sua senha para continuar <==="; echo "~~* Git Status *~~"; git status; echo "~~*~~"'
+            },
+            {
+                categoria: 'Git',
+                alias: 'gitlumos',
+                comando: 'echo "~~*~~"; echo "~~* Lumos! (ou git branch -a) *~~"; git branch -a; echo "~~* Bom trabalho! *~~"'
+            },
+            {
+                categoria: 'Git',
+                alias: 'gitprotego',
+                comando: 'echo "~~*~~"; echo "~~* Protego! (Git Add + Commit) *~~"; git add .; echo "===> *Atenção* O editor abrirá para sua mensagem <==="; git commit; echo "~~* Código Protegido! *~~"; echo "~~*~~"'
+            },
+            {
+                categoria: 'Git',
+                alias: 'gitascendio',
+                comando: 'echo "~~*~~"; echo "~~* Ascendio! (Enviando para o remoto...) *~~"; git push; echo "~~*~~"; echo "~~* Código nas nuvens! *~~"; echo "~~*~~"'
+            }
+        ];
+
+        function carregarAlias(dados = aliasData) {
+            const grid = document.getElementById('aliasGrid');
+            const noResults = document.getElementById('noResults');
+
+            grid.innerHTML = '';
+
+            if (dados.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            let categoriaAtual = '';
+            dados.forEach(item => {
+                if (item.categoria !== categoriaAtual) {
+                    categoriaAtual = item.categoria;
+                    const categoria = document.createElement('div');
+                    categoria.className = 'text-slate-500 text-sm mt-6 mb-2';
+                    categoria.textContent = `# Categoria: ${categoriaAtual}`;
+                    grid.appendChild(categoria);
+                }
+
+                const line = document.createElement('div');
+                line.className = 'bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded text-sm transition text-slate-300';
+                line.innerHTML = `alias <span class="text-slate-400">${item.alias}</span>='<span class="text-slate-500">${item.comando}</span>'`;
+                grid.appendChild(line);
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', (e) => {
+            const termo = e.target.value.toLowerCase();
+            const resultados = aliasData.filter(item =>
+                item.alias.toLowerCase().includes(termo) ||
+                item.comando.toLowerCase().includes(termo) ||
+                item.categoria.toLowerCase().includes(termo)
+            );
+            carregarAlias(resultados);
+        });
+
+        carregarAlias();
+    </script>
+</body>
+
+</html>
