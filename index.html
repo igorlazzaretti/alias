@@ -13,6 +13,22 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&amp;family=Oleo+Script:wght@400;700&amp;display=swap"
         rel="stylesheet">
+    <!-- OG -->
+    <meta property="og:title" content="Alias - Meus Atalhos">
+    <meta property="og:description" content="Meus atalhos mágicos no terminal">
+    <meta property="og:image" content="https://alias.meuweb.site/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alias.meuweb.site">
+    <meta property="og:site_name" content="Alias">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alias - Meus Atalhos">
+    <meta name="twitter:description" content="Meus atalhos mágicos no terminal">
+    <meta name="twitter:image" content="https://alias.meuweb.site/og-image.png">
 </head>
 
 <body class="bg-slate-950 text-slate-100 font-mono">
@@ -42,9 +58,11 @@
                     <h3 class="text-slate-400 font-bold mb-3">## Primeira vez no Linux</h3>
                     <div class="bg-slate-950 border border-slate-700 rounded p-3 space-y-1 text-sm">
                         <div class="text-slate-500"># Abra o arquivo de configuração:</div>
-                        <div class="text-slate-300">nano ~/.bashrc</div>
-                        <div class="text-slate-500 mt-3"># Vá ao final do arquivo e cole seus alias</div>
-                        <div class="text-slate-500"># Pressione CTRL+O para salvar, ENTER e CTRL+X para sair</div>
+                        <div class="text-slate-300">vim ~/.bashrc</div>
+                        <div class="text-slate-500 mt-3"># Pressione "Shift+G" (final), "o" (inserir em nova linha
+                            abaixo) e cole seus aliases</div>
+                        <div class="text-slate-500"># Pressione ESC, digite ":wq" (salvar e sair) e aperte ENTER para
+                            salvar e sair</div>
                         <div class="text-slate-500 mt-3"># Recarregue o arquivo:</div>
                         <div class="text-slate-300">source ~/.bashrc</div>
                     </div>
