@@ -1,6 +1,6 @@
 <!-- 
 :hash: Alias
-v1.0 - Fix Name
+v1.0 - Favico
  -->
 
 
