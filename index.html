@@ -58,22 +58,38 @@
                     <h3 class="text-slate-400 font-bold mb-3">## Primeira vez no Linux</h3>
                     <div class="bg-slate-950 border border-slate-700 rounded p-3 space-y-1 text-sm">
                         <div class="text-slate-500"># Abra o arquivo de configuração:</div>
-                        <div class="text-slate-300">vim ~/.bashrc</div>
+                        <div class="flex items-center group">
+                            <div class="text-slate-300">vim ~/.bashrc</div>
+                            <button onclick="copiarTexto('vim ~/.bashrc', this)"
+                                class="text-slate-500 hover:text-white transition ml-3" title="Copiar">📋</button>
+                        </div>
                         <div class="text-slate-500 mt-3"># Pressione "Shift+G" (final), "o" (inserir em nova linha
                             abaixo) e cole seus aliases</div>
                         <div class="text-slate-500"># Pressione ESC, digite ":wq" (salvar e sair) e aperte ENTER para
                             salvar e sair</div>
                         <div class="text-slate-500 mt-3"># Recarregue o arquivo:</div>
-                        <div class="text-slate-300">source ~/.bashrc</div>
+                        <div class="flex items-center group">
+                            <div class="text-slate-300">source ~/.bashrc</div>
+                            <button onclick="copiarTexto('source ~/.bashrc', this)"
+                                class="text-slate-500 hover:text-white transition ml-3" title="Copiar">📋</button>
+                        </div>
                     </div>
                 </div>
 
                 <div>
                     <h3 class="text-slate-400 font-bold mb-3">## Alterar alias já instalados</h3>
                     <div class="bg-slate-950 border border-slate-700 rounded p-3 space-y-1 text-sm">
-                        <div class="text-slate-300">subl ~/.bashrc</div>
+                        <div class="flex items-center group">
+                            <div class="text-slate-300">subl ~/.bashrc</div>
+                            <button onclick="copiarTexto('subl ~/.bashrc', this)"
+                                class="text-slate-500 hover:text-white transition ml-3" title="Copiar">📋</button>
+                        </div>
                         <div class="text-slate-500 mt-3"># Faça suas alterações e salve novamente</div>
-                        <div class="text-slate-300 mt-3">source ~/.bashrc</div>
+                        <div class="flex items-center group mt-3">
+                            <div class="text-slate-300">source ~/.bashrc</div>
+                            <button onclick="copiarTexto('source ~/.bashrc', this)"
+                                class="text-slate-500 hover:text-white transition ml-3" title="Copiar">📋</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -163,6 +179,16 @@
                 const originalText = btn.innerText;
                 btn.innerText = '✅ Copiado!';
 
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 2000);
+            });
+        }
+
+        function copiarTexto(texto, btn) {
+            navigator.clipboard.writeText(texto).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = '✅';
                 setTimeout(() => {
                     btn.innerText = originalText;
                 }, 2000);
