@@ -23,8 +23,12 @@ const aliasData = [
 
     // --- Categoria: Sistema de Repositories ---
     { categoria: 'Projetos', alias: 'mennuv', comando: 'cd ~/Repositories/mennuv-pasta && ls' },
+    { categoria: 'Projetos', alias: 'mennu', comando: 'cd ~/Repositories/mennuv-pasta && ls' },
+    { categoria: 'Projetos', alias: 'menu', comando: 'cd ~/Repositories/mennuv-pasta && ls' },
+    { categoria: 'Projetos', alias: 'meu', comando: 'cd ~/Repositories/meuwebsite-pasta && ls' },
     { categoria: 'Projetos', alias: 'meuweb', comando: 'cd ~/Repositories/meuwebsite-pasta && ls' },
     { categoria: 'Projetos', alias: 'meuwebsite', comando: 'cd ~/Repositories/meuwebsite-pasta && ls' },
+    { categoria: 'Projetos', alias: 'outro', comando: 'cd ~/Repositories/outros-pasta && ls' },
     { categoria: 'Projetos', alias: 'outros', comando: 'cd ~/Repositories/outros-pasta && ls' },
     { categoria: 'Projetos', alias: 'outrosprojetos', comando: 'cd ~/Repositories/outros-pasta && ls' },
 

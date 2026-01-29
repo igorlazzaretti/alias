@@ -1,6 +1,6 @@
 <!-- 
 :hash: Alias
-v1.0 - Copiando
+Update: pasta alias
  -->
 
 
