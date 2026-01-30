@@ -1,6 +1,6 @@
 <!-- 
 :hash: Alias
-Update: pasta alias
+Update: subl sub e s para flatpak sublime e outros alias para as pastas principais
  -->
 
 
