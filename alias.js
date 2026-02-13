@@ -46,6 +46,12 @@ const aliasData = [
     { categoria: 'Projetos', alias: 'outros', comando: 'cd ~/Repositories/outros-pasta && ls' },
     { categoria: 'Projetos', alias: 'outrosprojetos', comando: 'cd ~/Repositories/outros-pasta && ls' },
 
+    // --- Categoria: Runs e Deploy ---
+
+    { categoria: 'Runs e Deploys', alias: 'run', comando: 'npm run dev' },
+    { categoria: 'Runs e Deploys', alias: 'apibuild', comando: 'npm --workspace apps/api run deploy' },
+    { categoria: 'Runs e Deploys', alias: 'adminbuild', comando: 'npm --workspace apps/admin run build'},
+
     // --- Categoria: Git & GitHub ---
     {
         categoria: 'Git',
