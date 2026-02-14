@@ -49,6 +49,7 @@ const aliasData = [
     // --- Categoria: Runs e Deploy ---
 
     { categoria: 'Runs e Deploys', alias: 'run', comando: 'npm run dev' },
+    { categoria: 'Runs e Deploys', alias: 'runca', comando: 'npm run dev & google-chrome-stable --incognito http://localhost:5173/' },
     { categoria: 'Runs e Deploys', alias: 'apibuild', comando: 'npm --workspace apps/api run deploy' },
     { categoria: 'Runs e Deploys', alias: 'adminbuild', comando: 'npm --workspace apps/admin run build'},
 

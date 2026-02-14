@@ -1,6 +1,6 @@
 <!-- 
 :hash: Alias
-Update: subl sub e s para flatpak sublime e outros alias para as pastas principais
+Update: runca - run dev abrindo chrome anonimo
  -->
 
 
