@@ -48,10 +48,10 @@ const aliasData = [
 
     // --- Categoria: Runs e Deploy ---
 
-    { categoria: 'Runs e Deploys', alias: 'run', comando: 'npm run dev' },
-    { categoria: 'Runs e Deploys', alias: 'runca', comando: 'npm run dev & google-chrome-stable --incognito http://localhost:5173/' },
+    { categoria: 'Runs e Deploys', alias: 'run', comando: 'npm run dev -- --port 5173 --strictPort & for i in {1..100}; do (echo > /dev/tcp/127.0.0.1/5173) >/dev/null 2>&1 && break; sleep 0.2; done; (echo > /dev/tcp/127.0.0.1/5173) >/dev/null 2>&1 && echo "Servidor pronto em http://localhost:5173/" || echo "Servidor não subiu na porta 5173."' },
+    { categoria: 'Runs e Deploys', alias: 'runca', comando: 'npm run dev -- --port 5173 --strictPort & for i in {1..100}; do (echo > /dev/tcp/127.0.0.1/5173) >/dev/null 2>&1 && break; sleep 0.2; done; (echo > /dev/tcp/127.0.0.1/5173) >/dev/null 2>&1 && google-chrome-stable --incognito http://localhost:5173/ || echo "Servidor não subiu na porta 5173."' },
     { categoria: 'Runs e Deploys', alias: 'apibuild', comando: 'npm --workspace apps/api run deploy' },
-    { categoria: 'Runs e Deploys', alias: 'adminbuild', comando: 'npm --workspace apps/admin run build'},
+    { categoria: 'Runs e Deploys', alias: 'interbuild', comando: 'npm --workspace apps/interface run build'},
 
     // --- Categoria: Git & GitHub ---
     {

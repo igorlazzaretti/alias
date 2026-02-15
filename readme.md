@@ -1,6 +1,6 @@
 <!-- 
 :hash: Alias
-Update: runca - run dev abrindo chrome anonimo
+Update: Deploy e Builds, strick 5173 e awaits de porta
  -->
 
 
