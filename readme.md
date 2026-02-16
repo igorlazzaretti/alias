@@ -1,6 +1,6 @@
 <!-- 
 :hash: Alias
-Update: Deploy e Builds, strick 5173 e awaits de porta
+Update: Runca atualizado + RunFP
  -->
 
 
