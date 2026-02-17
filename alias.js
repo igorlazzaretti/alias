@@ -51,6 +51,7 @@ const aliasData = [
     { categoria: 'Runs e Deploys', alias: 'runfp', comando: '_kill_ports(){ if command -v lsof >/dev/null 2>&1; then pids="$(lsof -tiTCP:5173-5183 -sTCP:LISTEN 2>/dev/null | sort -u)"; [ -n "$pids" ] && kill -9 $pids >/dev/null 2>&1; elif command -v fuser >/dev/null 2>&1; then fuser -k {5173..5183}/tcp >/dev/null 2>&1; fi; }; _kill_ports; echo "Portas 5173 até 5183 limpas com sucesso."' },
     { categoria: 'Runs e Deploys', alias: 'run', comando: '(sleep 3 && google-chrome-stable --incognito http://localhost:5173/ > /dev/null 2>&1 &) && npm run dev' },
     { categoria: 'Runs e Deploys', alias: 'runca', comando: 'run' },
+    { categoria: 'Runs e Deploys', alias: 'apirun', comando: 'npm --workspace apps/api run dev -- --port 8787' },
     { categoria: 'Runs e Deploys', alias: 'apibuild', comando: 'npm --workspace apps/api run deploy' },
     { categoria: 'Runs e Deploys', alias: 'interbuild', comando: 'npm --workspace apps/interface run build' },
 
